@@ -1,7 +1,18 @@
 # Most of this code was copied from: http://flask.readthedocs.org/en/latest/tutorial/introduction/\
 # code edited for CMPUT410-Lab4
 #
-# Edited by: Dylan Stankievech
+# Edited by: Dylan Stankievech and Robert Hackman
+#
+# Pair programmed because Robert lost his account even though he
+# totally logged out and it was AICT's fault because they didn't
+# know how to fix his monitor display issue and gave him bad
+# advice that resulted in this whole debacle not his so he's
+# really upset about it and he's going to give them a piece of
+# his mind when he goes to get it unbanned because really he is
+# supposed to be able to complete any course without his own
+# computer and they have violated that and now he's so upset
+# that he's probably the one writing this horrible run on
+# sentence.
 #
 #
 
@@ -64,7 +75,7 @@ def close_db(error):
 @app.route('/')
 def show_entries():
     db = get_db()
-    cur = db.execute('select category, priority, description, id from entries order by id desc')
+    cur = db.execute('select category, priority, description, id from entries order by priority desc')
     entries = cur.fetchall()
     return render_template('show_entries.html', entries=entries)
 
